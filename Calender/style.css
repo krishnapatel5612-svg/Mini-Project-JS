@@ -8,36 +8,34 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
     min-height: 100vh;
+    overflow: hidden;
     background-color: #273338;
-    padding: 20px;
+    padding: 15px;
 }
 
-/* Main Calendar Box */
+/* Main Container */
 #big_box {
     background-color: #618764;
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-
     gap: 20px;
+
     padding: 20px;
 
     border: 2px solid white;
     border-radius: 1rem;
 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3),
-                0 10px 30px rgba(0,0,0,0.6);
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.3),
+        0 10px 30px rgba(0,0,0,0.6);
 
-    /* Responsive Width */
     width: min(90vw, 460px);
 }
 
 /* Calendar Boxes */
 .boxes {
-
     width: 100%;
     aspect-ratio: 1 / 1;
 
@@ -51,7 +49,7 @@ body {
     border: 1px solid white;
     border-radius: 1.5rem;
 
-    font-size: clamp(18px, 2.5vw, 30px);
+    font-size: clamp(18px, 2.4vw, 30px);
     font-weight: bold;
     letter-spacing: 1.5px;
 
@@ -60,38 +58,63 @@ body {
 
     box-shadow: inset 10px 10px 35px rgba(0,0,0,0.6);
 
-    transition: transform .3s ease;
+    transition: 0.3s;
 }
 
-.boxes:hover {
+.boxes:hover{
     transform: scale(1.03);
 }
 
-/* Tablet */
-@media (max-width: 768px) {
+/* ================= Tablet ================= */
 
-    #big_box {
-        gap: 15px;
-        padding: 15px;
+@media (max-width:768px){
+
+    #big_box{
+        width:95vw;
+        gap:15px;
+        padding:15px;
     }
 
-    .boxes {
-        font-size: 22px;
+    .boxes{
+        font-size:22px;
     }
+
 }
 
-/* Mobile */
-@media (max-width: 480px) {
+/* ================= Mobile ================= */
 
-    #big_box {
-        width: 95vw;
-        gap: 10px;
-        padding: 10px;
+@media (max-width:480px){
+
+    body{
+        padding:10px;
     }
 
-    .boxes {
-        font-size: 18px;
-        border-radius: 1rem;
-        letter-spacing: 1px;
+    #big_box{
+        width:100%;
+        gap:10px;
+        padding:10px;
     }
+
+    .boxes{
+        font-size:17px;
+        letter-spacing:1px;
+        border-radius:1rem;
+    }
+
+}
+
+/* ================= Small Phones ================= */
+
+@media (max-width:360px){
+
+    #big_box{
+        gap:8px;
+        padding:8px;
+    }
+
+    .boxes{
+        font-size:15px;
+        border-radius:12px;
+    }
+
 }
