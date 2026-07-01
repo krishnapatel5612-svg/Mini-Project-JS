@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -9,41 +10,88 @@ body {
     align-items: center;
     overflow: hidden;
     min-height: 100vh;
-    margin: 0;
     background-color: #273338;
+    padding: 20px;
 }
 
+/* Main Calendar Box */
 #big_box {
     background-color: #618764;
+
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
+
     gap: 20px;
     padding: 20px;
-    border: 2px solid white;   
+
+    border: 2px solid white;
     border-radius: 1rem;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3), 0 10px 30px rgba(0,0,0,0.6);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3),
+                0 10px 30px rgba(0,0,0,0.6);
+
+    /* Responsive Width */
+    width: min(90vw, 460px);
 }
 
+/* Calendar Boxes */
 .boxes {
-    width: 200px;
-    height: 200px;
+
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
     background-color: #2B5748;
     color: white;
+
     border: 1px solid white;
-    
     border-radius: 1.5rem;
-    font-size: 30px;
+
+    font-size: clamp(18px, 2.5vw, 30px);
     font-weight: bold;
     letter-spacing: 1.5px;
 
-    /* box-shadow: 5px 5px 15px rgba(0,0,0,0.654); */
+    text-align: center;
+    padding: 10px;
+
     box-shadow: inset 10px 10px 35px rgba(0,0,0,0.6);
+
+    transition: transform .3s ease;
 }
 
+.boxes:hover {
+    transform: scale(1.03);
+}
 
+/* Tablet */
+@media (max-width: 768px) {
 
+    #big_box {
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .boxes {
+        font-size: 22px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+
+    #big_box {
+        width: 95vw;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .boxes {
+        font-size: 18px;
+        border-radius: 1rem;
+        letter-spacing: 1px;
+    }
+}
