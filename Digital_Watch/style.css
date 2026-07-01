@@ -6,36 +6,107 @@
 
 body {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+
+    padding: 15px;
 }
 
+/* Background */
 #vanta-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Goes behind the stopwatch card */
+    position: fixed;
+    inset: 0;
+    z-index: -1;
 }
 
+/* Main Card */
 #container {
-    width: 500px;
-    height: 500px;
+
+    width: min(90vw, 500px);
+    aspect-ratio: 1 / 1;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
     background-color: #fdf6ed37;
     border: 2px solid white;
-    
     border-radius: 1.5rem;
-    font-size: 62px;
+
+    box-shadow: 10px 10px 30px rgba(0,0,0,.65);
+
+    padding: 20px;
+}
+
+/* Time */
+#time{
+
+    color: white;
+
+    font-size: clamp(28px, 7vw, 62px);
     font-weight: bold;
-    letter-spacing: 1.5px;
-    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.654);
+
+    letter-spacing: clamp(1px,0.3vw,2px);
+
+    text-align: center;
+
+}
+
+/* ================= Tablet ================= */
+
+@media (max-width:768px){
+
+    #container{
+
+        width:85vw;
+        border-radius:20px;
+
+    }
+
+}
+
+/* ================= Mobile ================= */
+
+@media (max-width:480px){
+
+    body{
+        padding:10px;
+    }
+
+    #container{
+
+        width:95vw;
+        border-radius:18px;
+
+    }
+
+    #time{
+
+        font-size:clamp(24px,8vw,42px);
+
+    }
+
+}
+
+/* ================= Small Phones ================= */
+
+@media (max-width:360px){
+
+    #container{
+
+        width:98vw;
+
+    }
+
+    #time{
+
+        font-size:22px;
+        letter-spacing:1px;
+
+    }
+
 }
